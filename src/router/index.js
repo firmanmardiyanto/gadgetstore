@@ -67,6 +67,12 @@ const routes = [
     component: () => import("../views/MyOrder.vue"),
     meta: { auth: true },
   },
+  {
+    path: "/edit-profile/:id",
+    name: "edit-profile",
+    component: () => import("../views/EditProfile.vue"),
+    meta: { auth: true },
+  },
 ];
 
 const router = new VueRouter({
