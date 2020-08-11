@@ -1,14 +1,14 @@
 <template>
     <div>
         <v-container grid-list-md>
-            <v-subheader> {{ category.name }} </v-subheader>
-            <v-img v-if="category.image" :src="getImage(category.image)" height="150px"></v-img>
+            <v-subheader> {{ category.name }} phones</v-subheader>
+            <v-img v-if="category.image" :src="getImage(category.image)" height="200px"></v-img>
             <v-subheader> Gadget by "{{ category.name }}" category"</v-subheader>
             <v-layout row wrap>
                 <!--data yang berelasi akan ditampilkan menggunakan looping -->
-                <v-flex v-for="gadget in gadgets" xs6 :key="gadget.id">
+                <v-flex v-for="gadget in gadgets" xs6 md3 :key="gadget.id">
                     <v-card :to="'/gadget/' + gadget.slug">
-                    <v-img v-if="gadget.cover" :src="getImage(gadget.cover)" height="150px">
+                    <v-img v-if="gadget.cover" :src="getImage(gadget.cover)" height="175px" contain>
                         <v-container fill-height fluid pa-2>
                             <v-layout fill-height>
                                 <v-flex sx12 align-end flexbox>
@@ -23,7 +23,7 @@
                         <v-icon>favorite</v-icon>
                     </v-btn>
                     <v-btn icon>
-                        <v-icon>gadgetmark</v-icon>
+                        <v-icon>bookmark</v-icon>
                     </v-btn>
                     <v-btn icon>
                         <v-icon>share</v-icon>

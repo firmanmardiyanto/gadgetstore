@@ -6,7 +6,7 @@
             </v-subheader>
             <v-layout row wrap>
                 <!-- lakukan perulangan pada properti categories -->
-                <v-flex v-for="category in categories" xs6 :key="category.id">
+                <v-flex v-for="category in categories" xs6 md3 :key="category.id">
                     <v-card :to="'/category/'+ category.slug">
                         <v-img v-if="category.image" :src="getImage(category.image)" height="150px">
                             <v-container fill-height fluid pa-2>
@@ -23,7 +23,7 @@
                                 <v-icon> mdi-heart </v-icon>
                             </v-btn>
                             <v-btn icon>
-                                <v-icon> mdi-gadgetmark </v-icon>
+                                <v-icon> mdi-bookmark </v-icon>
                             </v-btn>
                             <v-btn icon>
                                 <v-icon> mdi-share </v-icon>

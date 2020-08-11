@@ -5,7 +5,7 @@
       <v-img
         v-if="gadget.cover"
         :src="getImage(gadget.cover)"
-        height="200px"
+        height="200px" contain
       ></v-img>
       <v-subheader> Information </v-subheader>
       <table class="v-data-table">
@@ -39,7 +39,7 @@
         </tbody>
       </table>
       <v-subheader> Description </v-subheader>
-      <p class="body-2">{{ gadget.description }}</p>
+      <div class="body-2" v-html="gadget.description"></div>
       <div style="position:relative">
         <v-btn block color="success" @click="buy" :disabled="gadget.stock == 0">
           <v-icon> save_alt </v-icon> &nbsp; buy

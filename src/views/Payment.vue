@@ -17,7 +17,7 @@
                 <v-simple-table>
                     <tr>
                         <td><img src="img/bca.svg" height="30"></td>
-                        <td> BCA KCP Rabella No. Rek 789542261 </td>
+                        <td> BCA KCP Gadget Store No. Rek 789542261 </td>
                     </tr>
                 </v-simple-table>
             </v-container>

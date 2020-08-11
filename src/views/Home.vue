@@ -10,11 +10,11 @@
       </v-subheader>
       <v-layout row wrap>
         <!-- variabel categories ini nanti akan kita isi dengan data dari endpoint category -->
-        <v-flex v-for="category in categories" xs6 :key="category.id">
+        <v-flex v-for="category in categories" xs12 md3 :key="category.id">
           <v-card :to="'/category/' + category.slug">
             <!-- untuk load image supaya lebih rapi akan kita buatkan method getImage -->
 
-            <v-img :src="getImage(category.image)" height="150px">
+            <v-img :src="getImage(category.image)" height="120px" contain>
               <v-container fill-height fluid pa-2>
                 <v-layout fill-height>
                   <v-flex xs12 align-end flexbox>
@@ -35,7 +35,7 @@
                 <v-icon>mdi-heart</v-icon>
               </v-btn>
               <v-btn icon>
-                <v-icon>mdi-gadgetmark</v-icon>
+                <v-icon>mdi-bookmark</v-icon>
               </v-btn>
               <v-btn icon>
                 <v-icon>mdi-share</v-icon>
@@ -56,9 +56,9 @@
       </v-subheader>
       <v-layout row wrap>
         <!-- data buku kita tampilkan dalam 2 kolom (xs6) -->
-        <v-flex v-for="(gadget, index) in gadgets" xs6 :key="index">
+        <v-flex v-for="(gadget, index) in gadgets" xs6 md3 :key="index">
           <v-card :to="'/gadget/' + gadget.slug">
-            <v-img :src="getImage(gadget.cover)" height="150px">
+            <v-img :src="getImage(gadget.cover)" height="175px" contain>
               <v-container fill-height fluid pa-2>
                 <v-layout fill-height>
                   <v-flex xs12 align-end flexbox>
@@ -76,7 +76,7 @@
                 <v-icon> mdi-heart </v-icon>
               </v-btn>
               <v-btn icon>
-                <v-icon> mdi-gadgetmark </v-icon>
+                <v-icon> mdi-bookmark </v-icon>
               </v-btn>
               <v-btn icon>
                 <v-icon> mdi-share </v-icon>
