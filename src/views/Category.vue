@@ -5,7 +5,7 @@
       <v-img
         v-if="category.image"
         :src="getImage(category.image)"
-        height="200px"
+        height="200px" contain
       ></v-img>
       <v-subheader> Gadget by "{{ category.name }}" category"</v-subheader>
       <v-layout row wrap>
@@ -15,7 +15,7 @@
             <v-img
               v-if="gadget.cover"
               :src="getImage(gadget.cover)"
-              height="175px"
+              height="120px"
               contain
             >
               <v-container fill-height fluid pa-2>

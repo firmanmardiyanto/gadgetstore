@@ -9,7 +9,7 @@
         <template v-for="(item, index) in orderDetail">
           <v-list-item :key="'order' + index" :to="'/gadget/' + item.slug">
             <v-list-item-avatar>
-              <v-img :src="getImage(item.cover)"></v-img>
+              <v-img :src="getImage(item.cover)" contain></v-img>
             </v-list-item-avatar>
 
             <v-list-item-content>

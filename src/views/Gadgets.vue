@@ -7,7 +7,7 @@
       <v-layout row wrap>
         <v-flex v-for="(gadget, index) in gadgets" xs6 :key="index">
           <v-card :to="'/gadget/' + gadget.slug">
-            <v-img :src="getImage(gadget.cover)" height="150px">
+            <v-img :src="getImage(gadget.cover)" height="150px" contain>
               <v-container fill-height fluid pa-2>
                 <v-layout fill-height>
                   <v-flex xs12 align-end flexbox>

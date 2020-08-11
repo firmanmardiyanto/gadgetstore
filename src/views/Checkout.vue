@@ -60,11 +60,11 @@
           <template v-for="(item, index) in carts">
             <v-list-item :key="'cart' + index">
               <v-list-item-avatar>
-                <v-img :src="getImage(item.cover)"></v-img>
+                <v-img :src="getImage(item.cover)" contain></v-img>
               </v-list-item-avatar>
 
               <v-list-item-content>
-                <v-list-item-title v-html="item.title"></v-list-item-title>
+                <v-list-item-title v-html="item.merk"></v-list-item-title>
                 <v-list-item-subtitle>
                   Rp. {{ item.price.toLocaleString("id-ID") }} ({{
                     item.weight

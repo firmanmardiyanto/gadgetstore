@@ -17,11 +17,11 @@
         <template v-for="(item, index) in carts">
           <v-list-item :key="'cart' + index">
             <v-list-item-avatar>
-              <v-img :src="getImage(item.cover)"></v-img>
+              <v-img :src="getImage(item.cover)" contain></v-img>
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title v-html="item.title"></v-list-item-title>
+              <v-list-item-title v-html="item.merk">tt</v-list-item-title>
               <v-list-item-subtitle>
                 Rp. {{ item.price.toLocaleString("id-ID") }} ({{ item.weight }}
                 kg)
@@ -56,7 +56,7 @@
           <v-layout wrap>
             <v-flex pa-1 xs6>
               Total Price ({{ totalQuantity }} items) <br />
-              <span class="title"> Rp. {{ totalPrice }} </span>
+              <span class="title"> Rp. {{ totalPrice.toLocaleString("id-ID") }} </span>
             </v-flex>
             <v-flex pa-1 xs6 text-right>
               <v-btn
@@ -98,7 +98,6 @@ export default {
     checkout() {
       this.$emit("closed", false);
       this.$router.push({ path: "/checkout" });
-      this.close();
     },
     close() {
       this.setStatusDialog(false);
