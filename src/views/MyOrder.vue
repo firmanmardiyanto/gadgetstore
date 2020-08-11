@@ -13,12 +13,13 @@
                   Rp. {{ item.total_price.toLocaleString("id-ID") }}
                 </div>
                 <small
-                  >date: {{ item.updated_at }}. courier:
-                  {{ item.courier_service}}</small
+                  >date: {{ item.updated_at }}. <br />courier:
+                  {{ item.courier_service }}. <br />status:
+                  {{ item.status }}</small
                 ><br /><br />
               </td>
               <td>
-                {{ item.status }}
+                <v-btn color="success" :to="'/order-detail/'+ item.invoice_number">Details</v-btn>
               </td>
             </tr>
           </tbody>
@@ -45,6 +46,18 @@ export default {
     ...mapActions({
       setAlert: "alert/set",
     }),
+    orderDetail() {
+      let formData = new FormData();
+      formData.set("invoice", 20200811155748);
+      let config = {
+        headers: {
+          Authorization: "Bearer " + this.user.api_token,
+        },
+      };
+      this.axios.post("/order-detail", formData, config).then((response) => {
+        console.log(response);
+      });
+    },
   },
   mounted() {
     let config = {

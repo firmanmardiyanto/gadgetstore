@@ -73,6 +73,12 @@ const routes = [
     component: () => import("../views/EditProfile.vue"),
     meta: { auth: true },
   },
+  {
+    path: "/order-detail/:invoice",
+    name: "order-detail",
+    component: () => import("../views/Order.vue"),
+    meta: { auth: true },
+  },
 ];
 
 const router = new VueRouter({

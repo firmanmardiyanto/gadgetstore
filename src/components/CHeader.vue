@@ -16,6 +16,7 @@
     <!-- separator supaya header bagian kanan rata kanan -->
     <v-spacer></v-spacer>
     <v-text-field
+      slot="extension"
       v-if="isHome"
       @click="search()"
       dense

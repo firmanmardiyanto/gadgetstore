@@ -239,7 +239,6 @@ export default {
     getServices() {
       let courier = this.courier;
       let encodedCart = JSON.stringify(this.carts);
-      console.log(encodedCart);
       let formData = new FormData();
       formData.set("courier", courier);
       formData.set("carts", encodedCart);
@@ -293,7 +292,7 @@ export default {
       headers: {
         Authorization: "Bearer " + this.user.api_token,
       },
-    };
+    }; 
     this.axios
       .post("/payment", formData, config)
       .then((response) => {
