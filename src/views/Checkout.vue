@@ -132,7 +132,11 @@
             <div class="title">{{ totalBill.toLocaleString("id-ID") }}</div>
           </v-flex>
           <v-flex xs6 text-center>
-            <v-btn color="orange" @click="dialogConfirm=true" :disabled="totalBill==0">
+            <v-btn
+              color="orange"
+              @click="dialogConfirm = true"
+              :disabled="totalBill == 0"
+            >
               <v-icon light> attach_money </v-icon> &nbsp; Pay
             </v-btn>
           </v-flex>
@@ -280,46 +284,46 @@ export default {
       this.totalBill = parseInt(this.totalPrice) + parseInt(this.shippingCost);
     },
     pay() {
-    this.dialogConfirm = false;
-    let courier = this.courier;
-    let service = this.service;
-    let safeCarts = JSON.stringify(this.carts);
-    let formData = new FormData();
-    formData.set("courier", courier);
-    formData.set("service", service);
-    formData.set("carts", safeCarts);
-    let config = {
-      headers: {
-        Authorization: "Bearer " + this.user.api_token,
-      },
-    }; 
-    this.axios
-      .post("/payment", formData, config)
-      .then((response) => {
-        let { data } = response;
-        if (data && data.status == "success") {
-          this.setPayment(data.data);
-          this.$router.push({ path: "/payment" });
-        }
-        this.setCart([]);
-        this.setAlert({
-          status: true,
-          text: data.message,
-          color: data.status,
+      this.dialogConfirm = false;
+      let courier = this.courier;
+      let service = this.service;
+      let safeCarts = JSON.stringify(this.carts);
+      let formData = new FormData();
+      formData.set("courier", courier);
+      formData.set("service", service);
+      formData.set("carts", safeCarts);
+      let config = {
+        headers: {
+          Authorization: "Bearer " + this.user.api_token,
+        },
+      };
+      this.axios
+        .post("/payment", formData, config)
+        .then((response) => {
+          let { data } = response;
+          if (data && data.status == "success") {
+            this.setPayment(data.data);
+            this.$router.push({ path: "/payment" });
+          }
+          this.setCart([]);
+          this.setAlert({
+            status: true,
+            text: data.message,
+            color: data.status,
+          });
+        })
+        .catch((error) => {
+          let { data } = error.response;
+          this.setAlert({
+            status: true,
+            text: data.message,
+            color: "error",
+          });
         });
-      })
-      .catch((error) => {
-        let { data } = error.response;
-        this.setAlert({
-          status: true,
-          text: data.message,
-          color: "error",
-        });
-      });
-  },
-  cancel() {
-    this.dialogConfirm = false;
-  },
+    },
+    cancel() {
+      this.dialogConfirm = false;
+    },
   },
   created() {
     this.name = this.user.name;
@@ -341,6 +345,5 @@ export default {
       });
     }
   },
-  
 };
 </script>

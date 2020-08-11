@@ -5,7 +5,8 @@
       <v-img
         v-if="gadget.cover"
         :src="getImage(gadget.cover)"
-        height="200px" contain
+        height="200px"
+        contain
       ></v-img>
       <v-subheader> Information </v-subheader>
       <table class="v-data-table">
@@ -31,7 +32,10 @@
           <tr>
             <th class="text-xs-left">Categories</th>
             <td>
-              <template v-for="category in gadget.categories" v-key="category.id">
+              <template
+                v-for="category in gadget.categories"
+                v-key="category.id"
+              >
                 {{ category.name }},
               </template>
             </td>

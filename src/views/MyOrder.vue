@@ -19,7 +19,11 @@
                 ><br /><br />
               </td>
               <td>
-                <v-btn color="success" :to="'/order-detail/'+ item.invoice_number">Details</v-btn>
+                <v-btn
+                  color="success"
+                  :to="'/order-detail/' + item.invoice_number"
+                  >Details</v-btn
+                >
               </td>
             </tr>
           </tbody>

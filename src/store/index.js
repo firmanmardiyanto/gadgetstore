@@ -1,45 +1,45 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import cart from '../store/cart'
-import alert from '../store/alert'
-import dialog from '../store/dialog'
-import auth from '../store/auth'
-import region from '../store/region'
+import Vue from "vue";
+import Vuex from "vuex";
+import cart from "../store/cart";
+import alert from "../store/alert";
+import dialog from "../store/dialog";
+import auth from "../store/auth";
+import region from "../store/region";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     sideBar: false,
-    prevUrl: '',
+    prevUrl: "",
     payment: [],
   },
   mutations: {
-    setSideBar: (state,value) => {
-      state.sideBar = value
+    setSideBar: (state, value) => {
+      state.sideBar = value;
     },
     setPrevUrl: (state, value) => {
-      state.prevUrl = value
+      state.prevUrl = value;
     },
     setPayment: (state, value) => {
-      state.payment = value
-    }
+      state.payment = value;
+    },
   },
   actions: {
-    setSideBar: ({commit}, value) => {
-      commit('setSideBar', value)
+    setSideBar: ({ commit }, value) => {
+      commit("setSideBar", value);
     },
-    setPrevUrl: ({commit}, value) => {
-      commit('setPrevUrl', value)
+    setPrevUrl: ({ commit }, value) => {
+      commit("setPrevUrl", value);
     },
-    setPayment: ({commit}, value) => {
-      commit('setPayment', value)
-    }
+    setPayment: ({ commit }, value) => {
+      commit("setPayment", value);
+    },
   },
   getters: {
-      sideBar: state => state.sideBar,
-      prevUrl: state => state.prevUrl,
-      payment: state => state.payment,
+    sideBar: (state) => state.sideBar,
+    prevUrl: (state) => state.prevUrl,
+    payment: (state) => state.payment,
   },
   modules: {
     cart,
@@ -47,5 +47,5 @@ export default new Vuex.Store({
     dialog,
     auth,
     region,
-  }
-})
+  },
+});

@@ -23,9 +23,7 @@
             <v-list-item-content>
               <v-list-item-title v-html="item.title"></v-list-item-title>
               <v-list-item-subtitle>
-                Rp. {{ item.price.toLocaleString("id-ID") }} ({{
-                  item.weight
-                }}
+                Rp. {{ item.price.toLocaleString("id-ID") }} ({{ item.weight }}
                 kg)
                 <span style="float:right">
                   <v-btn
@@ -100,7 +98,7 @@ export default {
     checkout() {
       this.$emit("closed", false);
       this.$router.push({ path: "/checkout" });
-      this.close()
+      this.close();
     },
     close() {
       this.setStatusDialog(false);

@@ -7,7 +7,7 @@
     <v-container fluid>
       <v-list three-line>
         <template v-for="(item, index) in orderDetail">
-          <v-list-item :key="'order' + index" :to="'/gadget/'+ item.slug">
+          <v-list-item :key="'order' + index" :to="'/gadget/' + item.slug">
             <v-list-item-avatar>
               <v-img :src="getImage(item.cover)"></v-img>
             </v-list-item-avatar>
@@ -17,11 +17,7 @@
               <v-list-item-subtitle>
                 Rp. {{ item.price.toLocaleString("id-ID") }} ({{ item.weight }}
                 kg)
-                <span style="float:right">
-                  
-                  x {{ item.quantity }}
-                  
-                </span>
+                <span style="float:right"> x {{ item.quantity }} </span>
               </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
@@ -31,7 +27,7 @@
         <v-card-text>
           <v-layout wrap>
             <v-flex pa-1>
-               No. Invoice : {{invoice}}<br/>
+              No. Invoice : {{ invoice }}<br />
               Total Price ({{ totalQuantity }} items) <br />
               <span class="title"> Rp. {{ totalPrice }} </span>
             </v-flex>
@@ -58,8 +54,7 @@ export default {
       user: "auth/user",
     }),
   },
-  methods: {
-  },
+  methods: {},
   mounted() {
     let invoice = this.$route.params.invoice;
     this.invoice = invoice;
@@ -75,10 +70,10 @@ export default {
       .then((response) => {
         let orderDetail = response.data.data;
         this.orderDetail = orderDetail;
-        this.totalPrice = orderDetail[0].total_price.toLocaleString("id-ID")
-        orderDetail.forEach(item=>{
-            this.totalQuantity += item.quantity
-        })
+        this.totalPrice = orderDetail[0].total_price.toLocaleString("id-ID");
+        orderDetail.forEach((item) => {
+          this.totalQuantity += item.quantity;
+        });
       })
       .catch((error) => {
         let responses = error.response;
